@@ -41,7 +41,7 @@ const DeleteModal = ({
         {/* Icon */}
         <div className="flex justify-center mb-4">
           <div className="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center">
-            <AlertTriangle className="w-8 h-8 text-red-600 dark:text-red-400" />
+            <AlertTriangle className="w-8 h-8 text-black dark:text-white" />
           </div>
         </div>
 
@@ -77,7 +77,7 @@ const DeleteModal = ({
           <button
             onClick={handleConfirm}
             disabled={loading}
-            className="flex-1 px-4 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="flex-1 px-4 py-3 bg-teal-700 text-white rounded-xl transition-all font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {loading ? (
               <>

@@ -673,12 +673,23 @@ const Purchases = () => {
     </div>
   )}
 
-  {/* Modal Detalles */}
+  {/* Modal Detalles */}  
   {showDetailsModal && selectedPurchase && (
-    <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4 overflow-y-auto">
-      <div className="bg-white dark:bg-neutral-900 rounded-xl shadow-2xl w-[380px] max-w-[95vw] my-8 overflow-hidden border border-gray-100 dark:border-neutral-700">
+    <div className="fixed inset-0 bg-black/60 flex items-start justify-center z-50 p-0 overflow-y-auto">
+     <div className="
+  bg-white dark:bg-neutral-900 
+  rounded-xl 
+
+  w-[380px] max-w-[95vw] 
+  my-8 overflow-hidden 
+  border border-gray-100 
+  dark:border-transparent
+  print:shadow-none print:border-0 print:rounded-none
+">
+
+
         {/* Header con botones */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-3 flex justify-between items-center print:hidden">
+        <div className="bg-teal-700 p-3 flex justify-between items-center print:hidden">
           <h2 className="text-sm font-bold text-white flex items-center gap-2">
             <ShoppingBag className="w-4 h-4" />
             Ticket de Venta
@@ -686,7 +697,7 @@ const Purchases = () => {
           <div className="flex gap-2">
             <button
               onClick={() => window.print()}
-              className="p-1.5 bg-white/20 hover:bg-white/30 rounded-lg transition-colors"
+              className="p-1.5  bg-white/20 hover:bg-white/30 rounded-lg transition-colors"
               title="Imprimir"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
@@ -711,14 +722,14 @@ const Purchases = () => {
         {/* Contenido del Ticket */}
         <div className="p-5 max-h-[80vh] overflow-y-auto print:max-h-none print:overflow-visible print:p-0 ticket-content">
           {/* Encabezado del negocio */}
-          <div className="text-center mb-5 pb-4 border-b-2 border-gray-300 dark:border-neutral-600 print:border-black">
-            <h1 className="text-lg font-bold text-gray-900 dark:text-gray-100 print:text-black mb-2">MI NEGOCIO</h1>
-            <p className="text-xs text-gray-700 dark:text-gray-300 print:text-black leading-relaxed">Calle Principal #123</p>
-            <p className="text-xs text-gray-700 dark:text-gray-300 print:text-black leading-relaxed">Tel: (123) 456-7890</p>
+          <div className="text-center mb-5 pb-4 border-b-2 border-gray-300 dark:border-neutral-600">
+            <h1 className="text-lg font-bold text-gray-900 dark:text-gray-100 print:text-black mb-2">SUPPLY</h1>
+            <p className="text-xs text-gray-700 dark:text-gray-300 print:text-black leading-relaxed">Sonsonate Centro</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300 print:text-black leading-relaxed">Tel: (+503) 63089440</p>
           </div>
 
           {/* Información de la venta */}
-          <div className="mb-4 text-xs space-y-1.5">
+          <div className="mb-4 text-xs spacekl-y-1.5">
             <div className="flex justify-between">
               <span className="text-gray-700 dark:text-gray-300 print:text-black">Ticket:</span>
               <span className="text-gray-900 dark:text-gray-100 print:text-black font-medium">#{selectedPurchase.id}</span>
@@ -731,12 +742,17 @@ const Purchases = () => {
               </span>
             </div>
 
-            <div className="flex justify-between">
-              <span className="text-gray-700 dark:text-gray-300 print:text-black">Hora:</span>
-              <span className="text-gray-900 dark:text-gray-100 print:text-black">
-                {new Date(selectedPurchase.date).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}
-              </span>
-            </div>
+          <div className="flex justify-between">
+          <span className="text-gray-700 dark:text-gray-300 print:text-black">Hora:</span>
+          <span className="text-gray-900 dark:text-gray-100 print:text-black">
+            {new Date(selectedPurchase.date).toLocaleTimeString('en-US', { 
+              hour: '2-digit', 
+              minute: '2-digit',
+              hour12: true
+            })}
+          </span>
+        </div>
+
 
             <div className="flex justify-between">
               <span className="text-gray-700 dark:text-gray-300 print:text-black">Cliente:</span>
@@ -746,7 +762,7 @@ const Purchases = () => {
             </div>
           </div>
 
-          <div className="border-t-2 border-gray-300 dark:border-neutral-600 print:border-black mb-3"></div>
+          <div className="border-t-2 border-gray-300 dark:border-neutral-600 mb-3"></div>
 
           {/* Productos */}
           <div className="mb-4">
@@ -773,7 +789,7 @@ const Purchases = () => {
             </div>
           </div>
 
-          <div className="border-t-2 border-gray-300 dark:border-neutral-600 print:border-black my-3"></div>
+          <div className="border-t-2 border-gray-300 dark:border-neutral-600 my-3"></div>
 
           {/* Totales */}
           <div className="mb-4 text-xs space-y-1.5">
@@ -786,7 +802,7 @@ const Purchases = () => {
               <span className="text-gray-900 dark:text-gray-100 print:text-black">${formatPrice(selectedPurchase.total - (selectedPurchase.total / 1.16))}</span>
             </div>
 
-            <div className="border-t-2 border-gray-400 dark:border-neutral-600 print:border-black pt-2 mt-3">
+            <div className="border-t-2 border-gray-400 dark:border-neutral-600 pt-2 mt-3">
               <div className="flex justify-between items-center">
                 <span className="text-base font-bold text-gray-900 dark:text-gray-100 print:text-black">TOTAL:</span>
                 <span className="text-xl font-bold text-gray-900 dark:text-gray-100 print:text-black">
@@ -796,7 +812,7 @@ const Purchases = () => {
             </div>
           </div>
 
-          <div className="text-center pt-4 border-t-2 border-dashed border-gray-400 dark:border-neutral-600 print:border-black">
+          <div className="text-center pt-4 border-t-2 border-dashed border-gray-400 dark:border-neutral-600">
             <p className="text-xs font-medium text-gray-900 dark:text-gray-100 print:text-black mb-1.5">¡Gracias por su compra!</p>
             <p className="text-[10px] text-gray-600 dark:text-gray-400 print:text-black italic">Conserve este ticket</p>
           </div>
@@ -806,7 +822,7 @@ const Purchases = () => {
         <div className="p-3 bg-gray-50 dark:bg-neutral-900 border-t border-gray-200 dark:border-neutral-700 flex gap-2 print:hidden">
           <button
             onClick={() => window.print()}
-            className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm"
+            className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-teal-600  text-white rounded-lg transition-colors font-medium text-sm"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="6 9 6 2 18 2 18 9"></polyline>
@@ -833,6 +849,7 @@ const Purchases = () => {
         size: 80mm auto; 
         margin: 0; 
       }
+        
       
       * {
         -webkit-print-color-adjust: exact !important;
@@ -852,21 +869,29 @@ const Purchases = () => {
         visibility: visible; 
       }
       
-      .fixed { 
-        position: absolute !important; 
-        left: 0 !important; 
-        top: 0 !important; 
-        width: 80mm !important; 
+      /* Make the modal use the full printable width (helps remove the
+         visual side gutters in print-preview). Keep internal borders intact. */
+      .fixed {
+        position: absolute !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        width: 100% !important; /* fill page width */
         height: auto !important;
-        background: white !important; 
+        background: white !important;
         overflow: visible !important;
+        border: 0 !important; /* remove outer modal border when printing */
+        box-shadow: none !important; /* remove any drop shadow */
       }
       
+      /* Expand the ticket content to the printable width and remove the
+         auto-centering so it prints flush against page edges (printer may
+         still apply hardware margins). Keep separators inside the ticket. */
       .ticket-content { 
-        width: 72mm !important;
-        max-width: 72mm !important;
-        padding: 4mm !important; 
-        margin: 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 4mm 4mm !important; /* small horizontal padding to avoid content being cut off */
+        margin: 0 !important;
         background: white !important;
         color: black !important;
         overflow: visible !important;
@@ -888,18 +913,14 @@ const Purchases = () => {
         background-color: white !important;
       }
       
-      .ticket-content [class="border"] {
-        border-color: black !important;
-      }
       
       .print\\:text-black,
       .print\\:text-black * {
         color: black !important;
       }
       
-      .print\\:border-black {
-        border-color: black !important;
-      }
+      /* don't force border colors in print — internal separators use their
+         normal border styles (keep them visible but not forced to black) */
       
       .print\\:hidden { 
         display: none !important; 
@@ -919,6 +940,7 @@ const Purchases = () => {
       }
     }
   `}</style>
+
 </div>
 </>
 );
