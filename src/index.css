@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  letter-spacing: -0.03em; 
+}
+
+:root { 
+  --green: oklch(59.6% 0.145 163.225);
+  --green-hover: oklch(50.8% 0.118 165.612);
+  --green-shadow: oklch(84.5% 0.143 164.978);
+  --color-secondary: #9333ea;
+  --color-warning: #f59e0b;
+}
+
+.custom-select option {
+  background-color: #f0f0f0; /* Color del dropdown */
+  color: #000; /* Color del texto */
+}
+
+/* Ocultar scrollbar pero mantener scroll */
+.scroll-container {
+  overflow-y: scroll;     /* Scroll siempre activo */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Chrome, Edge, Safari */
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #b0b0b0;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #909090;
+}
+
+button{
+  cursor: pointer;
+}
+
+
+html, body {
+  overflow: hidden;   
+  height: 100%;
+}
