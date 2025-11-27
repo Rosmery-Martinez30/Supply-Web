@@ -125,8 +125,8 @@ const Suppliers = () => {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
-                  <Truck className="w-6 h-6 text-orange-600" />
+                 <div className="w-10 h-10 bg-teal-100 dark:bg-teal-600/20 rounded-lg flex items-center justify-center">
+                  <Truck className="w-6 h-6 text-teal-600 dark:text-teal-400" />
                 </div>
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">Proveedores</h1>
               </div>
